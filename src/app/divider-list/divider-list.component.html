@@ -1,0 +1,12 @@
+<!-- @for (item of list; track item) {
+<app-divider-item
+  [divider]="divider"
+  [item]="item"
+  (dividerChange)="dividerChange.emit({ newValue: $event.newValue })"
+/>
+} -->
+
+<app-divider-item
+  *ngFor="let item of list"
+  [item]="item"
+/>
