@@ -12,7 +12,7 @@ import { set } from '../stores/divider.actions';
   styleUrl: './divider-item.component.scss',
 })
 export class DividerItemComponent {
-  @Input() item!: number;
+  @Input() nr!: number;
   divider$: Observable<number>;
 
   constructor(private store: Store<{ divider: number }>) {

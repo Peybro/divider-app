@@ -1,15 +1,15 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { increment, decrement } from '../stores/divider.actions';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
+import { increment, decrement } from '../stores/divider.actions';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
   divider$: Observable<number>;

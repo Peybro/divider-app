@@ -1,6 +1,6 @@
 <div
-  [ngClass]="item % (divider$ | async)! === 0 ? 'green' : 'red'"
-  (click)="setDivider(item)"
+  [ngClass]="nr % (divider$ | async)! === 0 ? 'green' : 'red'"
+  (click)="setDivider(nr)"
 >
-  {{ item }}
+  {{ nr }}
 </div>
