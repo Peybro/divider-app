@@ -1,14 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  Signal,
-  WritableSignal,
-  computed,
-  inject,
-} from '@angular/core';
+import { Component, Input, computed, inject } from '@angular/core';
 import { DividerStore } from './../divider.store';
 
 @Component({
@@ -20,9 +11,14 @@ import { DividerStore } from './../divider.store';
   providers: [DividerStore],
 })
 export class DividerItemComponent {
+  @Input() item!: number;
+
   store = inject(DividerStore);
 
-  @Input() item!: number;
+  setDivider = (newValue: number) => {
+    this.store.set(newValue)
+    console.log('setDivider', newValue);
+  };
 
   isDividable = computed(() => this.item % this.store.divider() === 0);
 }

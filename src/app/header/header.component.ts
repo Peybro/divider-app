@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { DividerStore } from './../divider.store';
 
 @Component({
@@ -12,16 +12,15 @@ import { DividerStore } from './../divider.store';
 export class HeaderComponent {
   store = new DividerStore();
 
-  // @Input() divider: number = 4;
+  increment() {
+    this.store.increment();
+  }
 
-  // @Output() dividerIncrease = new EventEmitter();
-  // @Output() dividerDecrease = new EventEmitter();
+  decrement() {
+    this.store.decrement();
+  }
 
-  // public increase() {
-  //   this.dividerIncrease.emit();
-  // }
-
-  // public decrease() {
-  //   this.dividerDecrease.emit();
-  // }
+  set(value: number) {
+    this.store.set(value);
+  }
 }
