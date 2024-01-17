@@ -1,8 +1,13 @@
 <app-header
+  [divider]="divider()"
+  (dividerIncrease)="increase()"
+  (dividerDecrease)="decrease()"
 ></app-header>
 <main>
   <app-divider-list
     [list]="list()"
+    [divider]="divider"
+    (dividerChange)="divider.set($event.newValue)"
   ></app-divider-list>
 </main>
 

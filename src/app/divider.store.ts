@@ -17,7 +17,7 @@ export const DividerStore = signalStore(
       patchState(store, { divider: divider() - 1 });
     },
     set(newValue: number) {
-        patchState(store, { divider: newValue });
+        patchState(store, { divider: newValue });       
     }
   }))
 );

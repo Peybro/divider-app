@@ -1,3 +1,6 @@
-<div [ngClass]="isDividable() ? 'green' : 'red'" (click)="store.set(item)">
+<div
+  [ngClass]="item % divider() === 0 ? 'green' : 'red'"
+  (click)="dividerChange.emit({ newValue: item })"
+>
   {{ item }}
 </div>
