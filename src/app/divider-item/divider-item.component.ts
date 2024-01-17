@@ -1,13 +1,8 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  Signal,
-  WritableSignal,
-  computed,
-} from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { set } from '../stores/divider.actions';
 
 @Component({
   selector: 'app-divider-item',
@@ -17,10 +12,14 @@ import {
   styleUrl: './divider-item.component.scss',
 })
 export class DividerItemComponent {
-  @Input() divider!: WritableSignal<number>;
   @Input() item!: number;
+  divider$: Observable<number>;
 
-  @Output() dividerChange = new EventEmitter<{ newValue: number }>();
+  constructor(private store: Store<{ divider: number }>) {
+    this.divider$ = store.select('divider');
+  }
 
-  isDividable = computed(() => this.item % this.divider() === 0);
+  setDivider(newValue: number) {
+    this.store.dispatch(set({ payload: newValue }));
+  }
 }

@@ -1,14 +1,6 @@
-<app-header
-  [divider]="divider()"
-  (dividerIncrease)="increase()"
-  (dividerDecrease)="decrease()"
-></app-header>
+<app-header></app-header>
 <main>
-  <app-divider-list
-    [list]="list()"
-    [divider]="divider"
-    (dividerChange)="divider.set($event.newValue)"
-  ></app-divider-list>
+  <app-divider-list></app-divider-list>
 </main>
 
 <router-outlet></router-outlet>

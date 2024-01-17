@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output, WritableSignal } from '@angular/core';
+import { Component } from '@angular/core';
 import { DividerItemComponent } from '../divider-item/divider-item.component';
 
 @Component({
@@ -10,7 +10,5 @@ import { DividerItemComponent } from '../divider-item/divider-item.component';
   styleUrl: './divider-list.component.scss',
 })
 export class DividerListComponent {
-  @Input() list!: number[];
-  @Input() divider !: WritableSignal<number>;
-  @Output() dividerChange = new EventEmitter<{newValue: number}>();
+  list = Array.from({ length: 20 }, (_, i) => i + 1);
 }

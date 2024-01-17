@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import { StoreModule } from '@ngrx/store';
-import { dividerReducer } from './divider.reducer';
+import { dividerReducer } from './stores/divider.reducer';
 
 @NgModule({
   declarations: [],

@@ -8,7 +8,5 @@
 
 <app-divider-item
   *ngFor="let item of list"
-  [divider]="divider"
   [item]="item"
-  (dividerChange)="dividerChange.emit({ newValue: $event.newValue })"
 />

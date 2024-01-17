@@ -1,23 +1,28 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { increment, decrement } from '../stores/divider.actions';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  @Input() divider: number = 4;
+  divider$: Observable<number>;
 
-  @Output() dividerIncrease = new EventEmitter();
-  @Output() dividerDecrease = new EventEmitter();
+  constructor(private store: Store<{ divider: number }>) {
+    this.divider$ = store.select('divider');
+  }
 
   public increase() {
-    this.dividerIncrease.emit();
+    this.store.dispatch(increment());
   }
 
   public decrease() {
-    this.dividerDecrease.emit();
+    this.store.dispatch(decrement());
   }
 }
