@@ -1,8 +1,8 @@
 import { Store } from '@ngrx/store';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Observable } from 'rxjs';
-import { increment, decrement } from '../stores/divider.actions';
+import { increment, decrement } from '../state/divider/divider.actions';
+import { selectDividerValue } from '../state/divider/divider.selector';
 
 @Component({
   selector: 'app-header',
@@ -11,12 +11,11 @@ import { increment, decrement } from '../stores/divider.actions';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
-  divider$: Observable<number>;
 
-  constructor(private store: Store<{ divider: number }>) {
-    this.divider$ = store.select('divider');
-  }
+export class HeaderComponent {
+  divider$ = this.store.select(selectDividerValue);
+
+  constructor(private store: Store) {}
 
   public increase() {
     this.store.dispatch(increment());
