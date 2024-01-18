@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { set } from '../stores/divider.actions';
+import { set } from '../state/divider/divider.actions';
 
 @Component({
   selector: 'app-divider-item',
@@ -13,10 +13,11 @@ import { set } from '../stores/divider.actions';
 })
 export class DividerItemComponent {
   @Input() nr!: number;
+  private store = inject(Store);
   divider$: Observable<number>;
 
-  constructor(private store: Store<{ divider: number }>) {
-    this.divider$ = store.select('divider');
+  constructor() {
+    this.divider$ = this.store.select("divider");
   }
 
   setDivider(newValue: number) {
