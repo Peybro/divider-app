@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  @Input() divider: number = 4;
+  @Input() divider!: number;
 
   @Output() dividerIncrease = new EventEmitter();
   @Output() dividerDecrease = new EventEmitter();
