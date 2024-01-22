@@ -1,5 +1,7 @@
 <header>
-  {{ divider$ | async }}
-  <button (click)="increase()">+</button>
-  <button (click)="decrease()">-</button>
+  <h1>{{ Divider.value() }}</h1>
+  <div class="grid">
+    <button (click)="Divider.increment()">+</button>
+    <button (click)="Divider.decrement()">-</button>
+  </div>
 </header>
