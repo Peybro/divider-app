@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {DividerService} from '../divider.service';
+import {DividerService} from '../services/divider.service';
 
 @Component({
   selector: 'app-header',

@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, effect } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +7,17 @@ export class DividerService {
 
   #divider = signal(4)
 
+  // effect(() => {
+  //   console.log(`The current count is: ${this.#divider()}`);
+  // });
+
   constructor() { }
   
-  value = this.#divider.asReadonly();
+  // value = this.#divider.asReadonly();
 
-  // get divider() {
-  //   return this.#divider();
-  // }
+  value() {
+    return this.#divider();
+  }
 
   set(value: number) {
     this.#divider.set(value);

@@ -3,12 +3,13 @@
   margin: 0 0 10px 0;
   width: 100%;
   border-radius: 5px;
-}
+  cursor: pointer;
 
-.green {
-  background-color: green;
-}
+  &.green {
+    background-color: green;
+  }
 
-.red {
-  background-color: red;
+  &.red {
+    background-color: red;
+  }
 }

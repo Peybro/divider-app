@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, inject } from '@angular/core';
-import { DividerService } from '../divider.service';
+import { DividerService } from '../services/divider.service';
 
 @Component({
   selector: 'app-divider-item',
