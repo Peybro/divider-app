@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { increment, decrement } from '../state/divider/divider.actions';
 import { selectDividerValue } from '../state/divider/divider.selector';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -13,9 +14,11 @@ import { selectDividerValue } from '../state/divider/divider.selector';
 })
 
 export class HeaderComponent {
-  divider$ = this.store.select(selectDividerValue);
+  divider$: Observable<number>;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store<{ divider: number }>) {
+    this.divider$ = store.select('divider');
+  }
 
   public increase() {
     this.store.dispatch(increment());

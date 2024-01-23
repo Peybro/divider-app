@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { set } from '../stores/divider.actions';
+import { set } from '../state/divider/divider.actions';
 
 @Component({
   selector: 'app-divider-item',
